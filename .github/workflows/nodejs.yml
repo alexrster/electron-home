@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    runs-on: [ macos, windows, linux ]
+    runs-on: [ macos-latest, windows-latest, ubuntu-latest ]
 
     strategy:
       matrix:
