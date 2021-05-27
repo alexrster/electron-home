@@ -6,11 +6,12 @@ on:
 
 jobs:
   build:
-    runs-on: [ macos-latest, windows-latest, ubuntu-latest ]
-
     strategy:
       matrix:
         node-version: [ '16' ]
+        runs-on: [ macos-latest, windows-latest, ubuntu-latest ]
+
+    runs-on: ${{ matrix.runs-on }}
 
     env:
       CSC_IDENTITY_AUTO_DISCOVERY: false
