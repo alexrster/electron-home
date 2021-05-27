@@ -1,0 +1,30 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: [ macos, windows, linux ]
+
+    strategy:
+      matrix:
+        node-version: [ '16' ]
+
+    env:
+      CSC_IDENTITY_AUTO_DISCOVERY: false
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+        check-latest: true
+    - run: npm install
+    - run: npm run make
+    - uses: actions/upload-artifact@v2
+      with:
+        path: out/make/zip/**/*.zip
+        if-no-files-found: error
