@@ -10,10 +10,15 @@ jobs:
       matrix:
         node-version: [ '16' ]
         make-cmd: ['make']
-        runs-on: [ macos-latest, windows-latest ]
+        target-env: [ macos-latest, windows-latest, windows-ia32 ]
         include:
-        - runs-on: windows-latest
-          make-cmd: 'win:make'
+        - target-env: macos-latest
+          runs-on: macos-latest
+        - target-env: windows-latest
+          runs-on: windows-latest
+        - target-env: windows-ia32
+          runs-on: windows-latest
+          make-cmd: 'ia32:make'
 
     runs-on: ${{ matrix.runs-on }}
 
@@ -31,7 +36,7 @@ jobs:
     - run: npm run ${{ matrix.make-cmd }}
     - uses: actions/upload-artifact@v2
       with:
-        name: ${{ matrix.runs-on }}
+        name: ${{ matrix.target-env }}
         path: |
           out/**/*.zip
           out/**/*.exe

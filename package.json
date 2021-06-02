@@ -8,7 +8,7 @@
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
-    "win:make": "electron-forge make --arch=ia32,x64 --platform=win32",
+    "ia32:make": "electron-forge make --arch=ia32 --platform=win32",
     "rebuild": "electron-rebuild -f -w electron-home"
   },
   "author": "AY",
