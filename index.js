@@ -2,7 +2,8 @@ const { app, BrowserWindow } = require('electron');
 
 function createWindow () {
   const win = new BrowserWindow({
-    fullscreen: true
+    fullscreen: true,
+    frame: false
   });
 
   win.loadURL("http://h.in.qx.zone/");
