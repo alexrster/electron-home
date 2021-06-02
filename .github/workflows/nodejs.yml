@@ -10,6 +10,7 @@ jobs:
       matrix:
         node-version: [ '16' ]
         make-cmd: ['make']
+        runs-on: ['']
         target-env: [ macos-latest, windows-latest, windows-ia32 ]
         include:
         - target-env: macos-latest
