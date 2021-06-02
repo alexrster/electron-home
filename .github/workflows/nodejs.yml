@@ -9,6 +9,7 @@ jobs:
     strategy:
       matrix:
         node-version: [ '16' ]
+        runs-on: ['']
         target-env: ['']
         include:
         - target-env: macos-latest
