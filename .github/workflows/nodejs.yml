@@ -9,7 +9,11 @@ jobs:
     strategy:
       matrix:
         node-version: [ '16' ]
+        make-cmd: ['make']
         runs-on: [ macos-latest, windows-latest ]
+        include:
+        - runs-on: windows-latest
+          make-cmd: 'win:make'
 
     runs-on: ${{ matrix.runs-on }}
 
@@ -24,7 +28,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         check-latest: true
     - run: npm install
-    - run: npm run make
+    - run: npm run ${{ matrix.make-cmd }}
     - uses: actions/upload-artifact@v2
       with:
         name: ${{ matrix.runs-on }}

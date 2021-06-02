@@ -1,6 +1,6 @@
 {
   "name": "electron-home",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple wrapper around Homebridge UI",
   "main": "index.js",
   "scripts": {
