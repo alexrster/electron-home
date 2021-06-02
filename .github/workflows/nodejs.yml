@@ -9,14 +9,14 @@ jobs:
     strategy:
       matrix:
         node-version: [ '16' ]
-        make-cmd: ['make']
-        runs-on: ['']
-        target-env: [ macos-latest, windows-latest, windows-ia32 ]
+        target-env: ['']
         include:
         - target-env: macos-latest
           runs-on: macos-latest
+          make-cmd: make
         - target-env: windows-latest
           runs-on: windows-latest
+          make-cmd: make
         - target-env: windows-ia32
           runs-on: windows-latest
           make-cmd: 'ia32:make'
