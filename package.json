@@ -7,24 +7,26 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron-forge start",
     "package": "electron-forge package",
-    "make": "electron-forge make"
+    "make": "electron-forge make",
+    "rebuild": "electron-rebuild -f -w electron-home"
   },
   "author": "AY",
   "license": "ISC",
   "devDependencies": {
     "@electron-forge/cli": "latest",
-    "@electron-forge/maker-deb": "latest",
-    "@electron-forge/maker-rpm": "latest",
     "@electron-forge/maker-squirrel": "latest",
     "@electron-forge/maker-zip": "latest",
-    "electron": "^13.0.1"
+    "electron": "^13.0.1",
+    "electron-rebuild": "^2.3.5"
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0"
   },
   "config": {
     "forge": {
-      "packagerConfig": {},
+      "packagerConfig": {
+        "icon": "./favicon.ico"
+      },
       "makers": [
         {
           "name": "@electron-forge/maker-squirrel",
@@ -37,14 +39,6 @@
           "platforms": [
             "darwin"
           ]
-        },
-        {
-          "name": "@electron-forge/maker-deb",
-          "config": {}
-        },
-        {
-          "name": "@electron-forge/maker-rpm",
-          "config": {}
         }
       ]
     }
